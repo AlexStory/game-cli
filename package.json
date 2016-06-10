@@ -1,0 +1,26 @@
+{
+  "name": "game-cli",
+  "version": "1.0.0",
+  "description": "node program to creat text based adventure games from JSON",
+  "main": "bin/index.js",
+  "dependencies": {
+    "inquirer": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexStory/game-cli.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Alex Story",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexStory/game-cli/issues"
+  },
+  "homepage": "https://github.com/AlexStory/game-cli#readme"
+}
