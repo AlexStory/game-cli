@@ -1,0 +1,11 @@
+{
+  "name" : "Journey to the East",
+  "description" : "Your goal is to get to the east, you can enter commands as [verb][noun], good luck!",
+  "start" : "room-1",
+  "rooms" : [
+    {
+      "name" : "room-1",
+      "description" : "You find yourself at a crossroads, you know you must reach the east, what will you do?"
+    }
+  ]
+}
