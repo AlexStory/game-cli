@@ -4,7 +4,7 @@
   "description": "node program to creat text based adventure games from JSON",
   "main": "bin/index.js",
   "bin": {
-    "game-cli": "./bin.index.js"
+    "game-cli": "./bin/index.js"
   },
   "dependencies": {
     "chalk": "^1.1.3",
