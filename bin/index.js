@@ -1,8 +1,9 @@
 const inquirer = require('inquirer');
+let game = require('./../game.json');
+const helpers = require('./helpers')
 
 let character = {};
-let game = require('./../game.json');
-const rooms = game.rooms;
+
 
 const hasName = game.name || false;
 const hasDescription = game.description || false;
@@ -10,9 +11,10 @@ const hasDescription = game.description || false;
 hasName? console.log(`Welcome to ${game.name}`) : null;
 hasDescription? console.log(game.description) : null;
 runMainLoop();
+
 function runMainLoop(room){
     if (!room){
-        runMainLoop(getStartRoom());
+        runMainLoop(helpers.getStartRoom());
     } else {
         inquirer.prompt([{
             type : 'input',
@@ -26,15 +28,5 @@ function runMainLoop(room){
     }
 }
 
-function getStartRoom(){
-    if(game.start){
-        return getRoomByName(game.start);
-    }
-    return rooms[0] ;
-}
 
-function getRoomByName(name){
-    return rooms.filter((x)=>{
-        return x.name === name ;
-    })[0] ;
-}
+
