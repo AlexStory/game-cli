@@ -1,6 +1,6 @@
 {
   "name": "game-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "node program to creat text based adventure games from JSON",
   "main": "bin/index.js",
   "dependencies": {
