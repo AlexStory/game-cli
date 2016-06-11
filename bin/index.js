@@ -1,10 +1,13 @@
-let game = require('./../game.json');
+const fs = require('fs');
 const helpers = require('./helpers');
 const rl = require('readline-sync');
 const chalk = require('chalk');
 
 let character = {};
 
+//let game = JSON.parse(fs.readFileSync(process.argv[2]));
+let game = require('../' + process.argv[2]);
+helpers.setRooms(game);
 
 const hasName = game.name || false;
 const hasDescription = game.description || false;
@@ -16,7 +19,7 @@ runMainLoop();
 
 function runMainLoop(room, options){
     if (!room){
-        runMainLoop(helpers.getStartRoom());
+        runMainLoop(helpers.getStartRoom(game));
     } else if(room.win === true) {
         console.log(chalk.bold.green(room.description))
     } else {
@@ -28,7 +31,7 @@ function runMainLoop(room, options){
 function processAnswer(room, answer){
     let args = answer.toLowerCase().trim().split(' ');
     if(args[0] === 'go' && args.length == 2){
-        var roomToGo = helpers.getRoomFromPath(room, args[1]);
+        var roomToGo = helpers.getRoomFromPath(game, room, args[1]);
         roomToGo? runMainLoop(roomToGo) :runMainLoop(room, {premessage: 'You Can\'t go that way'});
     }
 }
