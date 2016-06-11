@@ -1,6 +1,7 @@
-const inquirer = require('inquirer');
 let game = require('./../game.json');
-const helpers = require('./helpers')
+const helpers = require('./helpers');
+const rl = require('readline-sync');
+const chalk = require('chalk');
 
 let character = {};
 
@@ -12,21 +13,29 @@ hasName? console.log(`Welcome to ${game.name}`) : null;
 hasDescription? console.log(game.description) : null;
 runMainLoop();
 
-function runMainLoop(room){
+
+function runMainLoop(room, options){
     if (!room){
         runMainLoop(helpers.getStartRoom());
+    } else if(room.win === true) {
+        console.log(chalk.bold.green(room.description))
     } else {
-        inquirer.prompt([{
-            type : 'input',
-            name : 'val',
-            message : room.description
-        }])
-            .then(function(ans){
-                let args = ans.val.trim().split(' ');
-                console.log(args);
-            });
+        AskQuestion(room, options)
+    };
+    
+}
+
+function processAnswer(room, answer){
+    let args = answer.toLowerCase().trim().split(' ');
+    if(args[0] === 'go' && args.length == 2){
+        var roomToGo = helpers.getRoomFromPath(room, args[1]);
+        roomToGo? runMainLoop(roomToGo) :runMainLoop(room, {premessage: 'You Can\'t go that way'});
     }
 }
 
-
+function AskQuestion(room, options) {
+    options = options || {};
+    var answer = rl.question(chalk.bold.green([options.premessage, room.description + "\n", '> '].join('\n')));
+    processAnswer(room, answer);
+}
 

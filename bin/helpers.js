@@ -1,10 +1,12 @@
 const game = require('./../game.json');
 const rooms = game.rooms;
+const chalk = require('chalk');
 
-module.exports = {
-    getRoomByName: getRoomByName,
-    getStartRoom : getStartRoom
-}
+
+exports.getRoomByName = getRoomByName;
+exports.getStartRoom = getStartRoom;
+exports.getRoomFromPath = getRoomFromPath;
+
 
 function getRoomByName(name){
     return rooms.filter((x)=>{
@@ -17,4 +19,10 @@ function getStartRoom(){
         return getRoomByName(game.start);
     }
     return rooms[0] ;
+}
+
+function getRoomFromPath(room, go){
+    return rooms.filter((x) =>{
+        return x.name === room.go[go];
+    })[0];
 }

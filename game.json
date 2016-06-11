@@ -4,8 +4,18 @@
   "start" : "room-1",
   "rooms" : [
     {
-      "name" : "room-1",
-      "description" : "You find yourself at a crossroads, you know you must reach the east, what will you do?"
+      "name": "room-1",
+      "description": "You find yourself at a crossroads, you know you must reach the east, what will you do?",
+      "go": {
+        "east": "room-2",
+        "west": "room-3",
+        "north": "room-3",
+        "south": "room-3"
+      }
+    }, {
+      "name" : "room-2",
+      "description" : "At last, You have finally reached the east, you win!",
+      "win" : true
     }
   ]
 }
