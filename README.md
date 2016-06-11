@@ -3,26 +3,26 @@ node program to make text based adventure games
 
 simply run game-cli <JSON file>
 your JSON file needs:
- ## Name
+## Name
  
- ## Description
+## Description
  
- ## Rooms
+## Rooms
  
-  An array of all the rooms inyour game.
+An array of all the rooms inyour game.
   
-  Rooms must Have:
+Rooms must Have:
+
+### Name
   
-  ### Name
+### Description
   
-  ### Description
+### Go
   
-  ### Go
-  
-    an object each item is a key-value pair where if the user types "go [key]" they will end up on the room with the name [value]
+an object each item is a key-value pair where if the user types "go [key]" they will end up on the room with the name [value]
     
-  Rooms May Have:
+Rooms May Have:
   
-  ### win
+### win
   
-    a boolean, if true the game will play this rooms the description and end the game.
+a boolean, if true the game will play this rooms the description and end the game.
