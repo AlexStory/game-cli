@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const helpers = require('./helpers');
 const rl = require('readline-sync');
@@ -31,7 +33,7 @@ function runMainLoop(room, options){
 function processAnswer(room, answer){
     let args = answer.toLowerCase().trim().split(' ');
     if(args[0] === 'go' && args.length == 2){
-        var roomToGo = helpers.getRoomFromPath(game, room, args[1]);
+        var roomToGo = helpers.getRoomFromPath( room, args[1]);
         roomToGo? runMainLoop(roomToGo) :runMainLoop(room, {premessage: 'You Can\'t go that way'});
     }
 }

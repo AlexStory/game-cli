@@ -26,8 +26,9 @@ function getStartRoom(){
     }
 }
 
-function getRoomFromPath(room, go){
+function getRoomFromPath(room, pth){
+    console.log(pth);
     return rooms.filter((x) =>{
-        return x.name === room.go[go];
+        return x.name === room.go[pth];
     })[0];
 }
