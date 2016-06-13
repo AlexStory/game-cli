@@ -3,7 +3,6 @@
 const fs = require('fs');
 const helpers = require('./helpers');
 const rl = require('readline-sync');
-const chalk = require('chalk');
 
 let character = {};
 
