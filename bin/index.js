@@ -4,6 +4,7 @@ const fs = require('fs');
 const helpers = require('./helpers');
 const rl = require('readline-sync');
 const chalk = require('chalk');
+const nl = require('os').EOL;
 
 let character = {};
 
@@ -23,11 +24,11 @@ function runMainLoop(room, options){
     if (!room){
         runMainLoop(helpers.getStartRoom(game));
     } else if(room.win === true) {
-        console.log(chalk.bold.green(room.description))
+        console.log(room.description)
     } else {
         AskQuestion(room, options)
     };
-    
+
 }
 
 function processAnswer(room, answer){
@@ -40,7 +41,6 @@ function processAnswer(room, answer){
 
 function AskQuestion(room, options) {
     options = options || {};
-    var answer = rl.question(chalk.bold.green([options.premessage, room.description + "\n", '> '].join('\n')));
+    var answer = rl.question([options.premessage, room.description + nl, '> '].join(nl));
     processAnswer(room, answer);
 }
-
