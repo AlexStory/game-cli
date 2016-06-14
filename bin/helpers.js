@@ -1,6 +1,3 @@
-const chalk = require('chalk');
-
-
 exports.getRoomByName = getRoomByName;
 exports.getStartRoom = getStartRoom;
 exports.getRoomFromPath = getRoomFromPath;
